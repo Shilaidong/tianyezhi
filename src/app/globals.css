@@ -1,0 +1,709 @@
+@import "tailwindcss";
+
+/* —— 中文字体（对标 OA 的 Orpheus / Caponi / Benton Sans） —— */
+@import "@fontsource/noto-serif-sc/300.css";
+@import "@fontsource/noto-serif-sc/400.css";
+@import "@fontsource/noto-serif-sc/600.css";
+@import "@fontsource/noto-serif-sc/700.css";
+@import "@fontsource/noto-sans-sc/300.css";
+@import "@fontsource/noto-sans-sc/400.css";
+@import "@fontsource/noto-sans-sc/500.css";
+@import "@fontsource/noto-sans-sc/700.css";
+@import "@fontsource/noto-sans-sc/900.css";
+@import "lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-paper-deep: #f0f0f0;
+  --color-ink: #000000;
+  --color-ink-soft: #555555;
+  --color-seal: #ff0000;
+  --color-seal-deep: #cc0000;
+  --color-straw: #c9a24d;
+  --color-moss: #5d6b48;
+
+  --font-song: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-body: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-hei: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-logo: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-kai: "LXGW WenKai Screen", "Kaiti SC", "STKaiti", "KaiTi", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: var(--font-hei);
+  line-height: 1;
+  margin: 0;
+}
+
+::selection {
+  background: #ff0000;
+  color: #fff;
+}
+
+/* Benton Sans Wide 10px uppercase — OA .accent */
+.oa-accent,
+.oa-label {
+  font-family: var(--font-hei);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.oa-container {
+  max-width: 1400px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+/* —— Header: copied from OA shell.css —— */
+.oa-header {
+  padding-top: 56px;
+  margin-bottom: 32px;
+}
+.oa-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 44px;
+  gap: 24px;
+}
+.oa-logo-link {
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.oa-logo {
+  width: 560px;
+  max-width: min(560px, 46vw);
+  height: auto;
+  display: block;
+  transform: scaleX(0.82);
+  transform-origin: left center;
+}
+.oa-logo text {
+  font-family: var(--font-hei);
+  font-weight: 900;
+}
+.oa-social {
+  padding-left: 40px;
+  text-align: right;
+  min-width: 280px;
+}
+.oa-login {
+  color: #ff0000;
+  text-decoration: none;
+  font-family: var(--font-song);
+  font-weight: 600;
+  font-size: 14px;
+}
+.oa-pipe {
+  color: #999;
+  padding: 0 8px;
+}
+.oa-social a {
+  color: #999;
+  text-decoration: none;
+  font-family: var(--font-song);
+  font-weight: 600;
+  padding-left: 4px;
+  font-size: 13px;
+}
+.oa-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  color: #888;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.oa-social-icon:hover {
+  color: #000;
+  transform: translateY(-1px);
+}
+.oa-social-icon svg {
+  width: 15px;
+  height: 15px;
+}
+.oa-support {
+  font-family: var(--font-display);
+  font-size: 35px;
+  font-weight: 400;
+  padding-top: 20px;
+  line-height: 1.05;
+  letter-spacing: 2px;
+}
+.oa-extra h3 {
+  font-family: var(--font-song);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+.oa-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.oa-nav-link {
+  text-decoration: none;
+  padding: 8px 6px;
+  display: inline-block;
+  font-family: var(--font-hei);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000;
+}
+.oa-nav-link:first-child {
+  padding-left: 0;
+}
+.oa-nav-colored {
+  background: #000;
+  color: #fff;
+  padding: 8px 10px;
+}
+.oa-nav-right {
+  display: flex;
+  align-items: center;
+}
+.oa-search {
+  margin-right: 14px;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+}
+.oa-search svg {
+  width: 16px;
+  height: 16px;
+}
+.oa-btn {
+  background: #000;
+  color: #fff;
+  padding: 12px 18px;
+  border: 2px solid #000;
+  white-space: nowrap;
+  margin-left: 5px;
+  text-decoration: none;
+  font-family: var(--font-hei);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.oa-btn-red {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+/* —— 12-col grid from OA department.css —— */
+.oa-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  grid-auto-rows: auto;
+}
+
+.oa-featured-left {
+  grid-column: span 7;
+  min-height: min(48vw, 690px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 0 5vw;
+  text-decoration: none;
+}
+.oa-featured-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.oa-featured-left::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+.oa-meta {
+  width: 100%;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+.oa-meta-top {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+.oa-meta-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.oa-featured-left h2,
+.oa-square-meta h2 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.2;
+  color: inherit;
+}
+.oa-excerpt {
+  font-family: var(--font-song);
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-top: 6px;
+}
+
+.oa-square-split {
+  grid-column: span 5;
+  display: flex;
+  min-height: 160px;
+  text-decoration: none;
+  color: #000;
+  background: #f0f0f0;
+  align-items: stretch;
+}
+.oa-square-image {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+  min-height: 180px;
+}
+.oa-square-meta {
+  width: 50%;
+  background: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.oa-square-label {
+  padding-bottom: 12px;
+}
+
+.oa-half {
+  grid-column: span 6;
+  height: min(25vw, 350px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+.oa-half-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.oa-half::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 1;
+}
+.oa-half-meta {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.oa-half-meta h2 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.2;
+}
+.oa-card-native {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.6);
+}
+.oa-card-native--ink {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.oa-strip {
+  position: relative;
+  display: block;
+  width: 320px;
+  height: 300px;
+  flex-shrink: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: #fff;
+}
+.oa-strip-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.oa-strip::before {
+  content: " ";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent 55%);
+  z-index: 1;
+}
+.oa-strip-meta {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 20px;
+  z-index: 2;
+}
+.oa-strip-meta h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.oa-section-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+.oa-arrow {
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
+a:hover .oa-arrow {
+  transform: translateX(3px);
+}
+
+.oa-h1 {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  padding-bottom: 4px;
+}
+
+.oa-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.oa-section-first {
+  padding-top: 0;
+}
+
+.oa-footer {
+  background: #222;
+  color: #fff;
+  padding-bottom: 40px;
+  margin-top: 40px;
+}
+.oa-to-top {
+  text-align: center;
+  padding: 24px 0;
+  background: #333;
+  cursor: pointer;
+}
+.oa-to-top p {
+  font-family: var(--font-song);
+  font-size: 26px;
+  font-weight: 400;
+}
+.oa-footer-inner {
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.oa-footer-col {
+  padding: 0 20px;
+}
+.oa-footer-logo {
+  font-family: var(--font-hei);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.oa-footer-tag {
+  font-family: var(--font-song);
+  font-size: 14px;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+.oa-footer-col h3 {
+  font-family: var(--font-song);
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.oa-footer-col a {
+  color: #fff;
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  font-family: var(--font-hei);
+  font-size: 13px;
+}
+.oa-footer-copy {
+  max-width: 1400px;
+  margin: 32px auto 0;
+  padding: 0 60px;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* article body — Caponi 16.5 / 28 */
+.prose-zh {
+  font-family: var(--font-song);
+  font-size: 16.5px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #000;
+}
+.prose-zh p {
+  margin-bottom: 20px;
+}
+.prose-zh h2 {
+  font-family: var(--font-song);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+}
+.prose-zh blockquote {
+  border-left: 4px solid #f0f0f0;
+  padding-left: 30px;
+  margin-left: 30px;
+  margin-block: 2em;
+}
+.dropcap::first-letter {
+  float: left;
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 0.5;
+  margin-top: 20px;
+  margin-right: 8px;
+  color: #000;
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+@media (max-width: 850px) {
+  .oa-container {
+    padding: 0 24px;
+  }
+  .oa-social,
+  .oa-nav {
+    display: none;
+  }
+  .oa-header {
+    padding-top: 16px;
+    border-bottom: 1px solid #000;
+  }
+  .oa-header-top {
+    padding-bottom: 0;
+  }
+  .oa-featured-left,
+  .oa-square-split {
+    grid-column: span 12;
+  }
+  .oa-square-split {
+    flex-direction: column;
+  }
+  .oa-square-image,
+  .oa-square-meta {
+    width: 100%;
+  }
+}
+
+@theme {
+  --color-paper: #ffffff;
+  --color-paper-deep: #f4f1ea;
+  --color-ink: #000000;
+  --color-ink-soft: #555555;
+  --color-seal: #c7382a;
+  --color-seal-deep: #a52a1e;
+  --color-straw: #c9a24d;
+  --color-moss: #5d6b48;
+
+  /* Orpheus（展示大标题）→ 思源宋体 */
+  --font-song: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --font-display: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  /* Caponi（正文）→ 思源宋体 Regular/Light */
+  --font-body: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  /* Benton Sans（标签/导航/署名）→ 思源黑体 */
+  --font-hei: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-logo: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  /* 引文/引语标题 → 霞鹜文楷 */
+  --font-kai: "LXGW WenKai Screen", "Kaiti SC", "STKaiti", "KaiTi", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-seal);
+  color: var(--color-paper);
+}
+
+/* OA 式小标签：Benton Sans 10px / 大写 / +1px 字距 */
+.oa-label {
+  font-family: var(--font-hei);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* 少数民族语细字：极简点缀 */
+.oa-logo-native {
+  display: block;
+  text-decoration: none;
+  margin-top: 6px;
+}
+.oa-native {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  opacity: 0.62;
+  margin-top: 10px;
+}
+
+.oa-native--en {
+  font-family: var(--font-song);
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+.oa-native--dark {
+  color: rgba(255, 255, 255, 0.62);
+  opacity: 1;
+}
+
+/* 文章正文排版（对标 Caponi 16.5px / 1.38–1.7） */
+.prose-zh {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.9;
+  color: var(--color-ink);
+}
+
+.prose-zh p {
+  margin-block: 1.35em;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+.prose-zh h2 {
+  font-family: var(--font-song);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+}
+
+.prose-zh blockquote {
+  border-left: 2px solid var(--color-seal);
+  padding-left: 1.2em;
+  margin-block: 2em;
+  color: var(--color-ink-soft);
+  font-style: normal;
+}
+
+.prose-zh em {
+  font-style: normal;
+  color: var(--color-seal-deep);
+}
+
+.prose-zh strong {
+  color: var(--color-ink);
+}
+
+.prose-zh ol {
+  margin-block: 1.6em;
+  padding-left: 1.4em;
+}
+
+.prose-zh li {
+  margin-block: 0.85em;
+}
+
+.prose-zh img {
+  display: block;
+  width: 100%;
+  margin: 1.1em 0 0.35em;
+}
+
+/* 首字下沉 */
+.dropcap::first-letter {
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.88;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  font-weight: 600;
+  color: var(--color-seal);
+}
+
+/* 竖排（特刊页刊名等） */
+.vertical-rl {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}

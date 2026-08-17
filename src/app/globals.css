@@ -645,6 +645,47 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   padding-top: 4.5rem;
   overflow: hidden;
 }
+.issue-deck-section--aside {
+  grid-column: span 5;
+  padding-top: 0;
+  min-height: min(48vw, 690px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.issue-deck-head {
+  padding: 0 4px;
+}
+.issue-deck-aside-title {
+  font-family: var(--font-hei);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+}
+.issue-deck-section--aside .issue-deck {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+  margin-top: 0.4rem;
+}
+.issue-deck-section--aside .issue-deck-card {
+  width: min(230px, 62%);
+}
+.issue-deck-section--aside .issue-deck-meta {
+  margin-top: 0.35rem;
+  padding: 0 4px 2px;
+  max-width: none;
+}
+.issue-deck-section--aside .issue-deck-title {
+  font-size: 20px;
+  margin-top: 6px;
+}
+.issue-deck-section--aside .issue-deck-kicker {
+  margin-top: 0.55rem;
+}
+.issue-deck-section--aside .issue-deck-cta {
+  margin-top: 10px;
+}
 .issue-deck {
   position: relative;
   height: min(62vw, 540px);
@@ -916,11 +957,16 @@ a:hover .oa-arrow {
   }
   .oa-featured-left,
   .oa-square-split,
-  .oa-feature-stack {
+  .oa-feature-stack,
+  .issue-deck-section--aside {
     grid-column: span 12;
   }
-  .oa-feature-stack {
+  .oa-feature-stack,
+  .issue-deck-section--aside {
     min-height: 0;
+  }
+  .issue-deck-section--aside {
+    min-height: 460px;
   }
   .oa-square-split {
     flex-direction: column;

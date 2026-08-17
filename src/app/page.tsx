@@ -3,7 +3,6 @@ import { getAllPosts } from "@/lib/posts";
 import { getCurrentIssue, getIssues } from "@/lib/issues";
 import ArticleCard from "@/components/article-card";
 import FeaturedHero from "@/components/featured-hero";
-import SquareSplit from "@/components/square-split";
 import OverlayCard from "@/components/overlay-card";
 import PullQuote from "@/components/pull-quote";
 import IssueDeck from "@/components/issue-deck";
@@ -18,8 +17,7 @@ export default async function Home() {
   const currentIssue = await getCurrentIssue();
   const texie = posts.filter((post) => post.section === "texie").slice(0, 5);
   const featured = texie[0];
-  const splits = texie.slice(1, 3);
-  const halves = texie.slice(3, 5);
+  const rest = texie.slice(1);
   const used = new Set(texie.map((post) => post.slug));
   const latest = posts
     .filter((post) => post.section !== "jianbao" && !used.has(post.slug))
@@ -30,14 +28,8 @@ export default async function Home() {
       <section className="oa-container oa-section-first">
         <div className="oa-grid">
           {featured && <FeaturedHero post={featured} />}
-          {splits.length > 0 && (
-            <div className="oa-feature-stack">
-              {splits.map((post) => (
-                <SquareSplit key={post.slug} post={post} />
-              ))}
-            </div>
-          )}
-          {halves.map((post) => (
+          <IssueDeck issues={issues} variant="aside" />
+          {rest.map((post) => (
             <OverlayCard key={post.slug} post={post} size="half" />
           ))}
         </div>
@@ -49,8 +41,6 @@ export default async function Home() {
         source="《田野志 · 界河》发刊词"
         enSub="A river never asks which bank its people belong to."
       />
-
-      <IssueDeck issues={issues} />
 
       <section className="oa-container oa-section">
         <h1 className="oa-section-title">最新文章</h1>

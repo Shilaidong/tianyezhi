@@ -44,7 +44,7 @@ function runOnce(
 export function runWithProxyFallback(
   command: string,
   args: string[],
-  extraEnv?: NodeJS.ProcessEnv,
+  extraEnv?: Record<string, string>,
 ): number {
   const first = runOnce(command, args, { ...process.env, ...extraEnv });
   if (first.status === 0) return 0;

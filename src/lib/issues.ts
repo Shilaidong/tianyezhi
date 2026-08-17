@@ -35,12 +35,23 @@ export const ISSUES: Issue[] = [
     blurb:
       "边境上的宗教很少待在经书里。它在奘房五点的门闩上，在主麻日货场忽然静下去的那半小时，在转山的鞋底，在看庙人口袋里的钥匙。",
   },
+  {
+    n: 4,
+    title: "古道",
+    season: "2027 秋",
+    color: "#5c4a32",
+    label: "第四期 · 古道",
+    blurb:
+      "路还在走。盐还在田里晒，桥不走车了车走下一座，驿站把第十八个名字留给了乡。货换了，石头还在。",
+  },
 ];
 
 export const CURRENT_ISSUE = ISSUES[0];
 export const NEXT_ISSUE = ISSUES[1];
 export const THIRD_ISSUE = ISSUES[2];
+export const FOURTH_ISSUE = ISSUES[3];
 
 export const ISSUE_LABEL = CURRENT_ISSUE.label;
 export const NEXT_ISSUE_LABEL = NEXT_ISSUE.label;
 export const THIRD_ISSUE_LABEL = THIRD_ISSUE.label;
+export const FOURTH_ISSUE_LABEL = FOURTH_ISSUE.label;

@@ -39,6 +39,9 @@ yarn-error.log*
 # local research dumps (OA CSS/screenshots)
 .research/
 
+# downloaded real-photo references for image regen (not published)
+.image-refs/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

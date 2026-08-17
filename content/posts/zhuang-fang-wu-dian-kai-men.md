@@ -6,7 +6,6 @@ place: 云南 · 瑞丽
 date: 2026-09-12
 section: texie
 issue: 第三期 · 香火
-featured: true
 motif: flame
 image: /images/zhuang-fang-wu-dian-kai-men.jpg
 coords: [23.98, 97.93]

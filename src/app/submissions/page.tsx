@@ -4,7 +4,7 @@ import { getAllLetters } from "@/lib/letters";
 import { getAllPosts } from "@/lib/posts";
 import { getSection } from "@/lib/sections";
 import { getAuthorByName } from "@/lib/authors";
-import { THIRD_ISSUE, THIRD_ISSUE_LABEL } from "@/lib/issues";
+import { FOURTH_ISSUE, FOURTH_ISSUE_LABEL } from "@/lib/issues";
 
 export const metadata: Metadata = {
   title: "投稿",
@@ -45,7 +45,7 @@ const GUIDELINES = [
 export default function SubmissionsPage() {
   const issueSlugs = new Set(
     getAllPosts()
-      .filter((post) => post.issue === THIRD_ISSUE_LABEL)
+      .filter((post) => post.issue === FOURTH_ISSUE_LABEL)
       .map((post) => post.slug),
   );
   const letters = getAllLetters().filter((letter) => issueSlugs.has(letter.postSlug));
@@ -100,13 +100,13 @@ export default function SubmissionsPage() {
       {letters.length > 0 && (
         <section className="mt-20 border-t border-ink pt-12">
           <p className="oa-label text-seal">
-            {THIRD_ISSUE_LABEL} · ISSUE No.{THIRD_ISSUE.n}
+            {FOURTH_ISSUE_LABEL} · ISSUE No.{FOURTH_ISSUE.n}
           </p>
           <h2 className="mt-3 font-song text-[28px] font-semibold tracking-[0.2em]">
-            十人来稿
+            九人来稿
           </h2>
           <p className="mt-4 font-song text-[15px] leading-relaxed text-ink-soft">
-            十位写作者把边境上的宗教写成开门、添灯、走路、看庙。
+            九位写过本刊的作者，用新的田野把更老的路写回来：盐田、空桥、驿站、茶道。
             下面是他们寄来的信；点开即可读已刊出的正文。
           </p>
 

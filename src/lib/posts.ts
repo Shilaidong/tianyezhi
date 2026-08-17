@@ -116,6 +116,18 @@ export async function getPostsBySection(section: SectionId): Promise<Post[]> {
   return getAllPostsFromFiles().filter((post) => post.section === section);
 }
 
+export async function getPostsByIssueLabel(label: string): Promise<Post[]> {
+  const db = await getDb();
+  if (db) {
+    const { results } = await db
+      .prepare("SELECT * FROM posts WHERE issue = ? ORDER BY date DESC")
+      .bind(label)
+      .all<PostRow>();
+    return (results ?? []).map(mapPost);
+  }
+  return getAllPostsFromFiles().filter((post) => post.issue === label);
+}
+
 export async function getPostsByAuthor(author: string): Promise<Post[]> {
   const db = await getDb();
   if (db) {

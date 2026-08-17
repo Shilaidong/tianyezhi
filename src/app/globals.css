@@ -328,6 +328,19 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   margin-top: 6px;
 }
 
+.oa-feature-stack {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-height: min(48vw, 690px);
+}
+.oa-feature-stack .oa-square-split {
+  grid-column: auto;
+  flex: 1;
+  min-height: 0;
+}
+
 .oa-square-split {
   grid-column: span 5;
   display: flex;
@@ -444,6 +457,306 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   font-weight: 400;
   letter-spacing: 2px;
   margin-top: 8px;
+}
+
+/* —— 特刊封面：对标 Oxford American 杂志封面 —— */
+.issue-cover {
+  --issue-ink: #33585e;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  color: #fff;
+  background: #111;
+  isolation: isolate;
+}
+.issue-cover-photo {
+  object-fit: cover;
+  object-position: center;
+}
+.issue-cover-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, transparent 46%);
+  pointer-events: none;
+}
+.issue-cover-mast,
+.issue-cover-banner,
+.issue-cover-foot,
+.issue-cover-plate,
+.issue-cover-split,
+.issue-cover-spine,
+.issue-cover-giant,
+.issue-cover-frame {
+  position: absolute;
+  z-index: 2;
+}
+.issue-cover-mast {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 16px 12px;
+  font-family: var(--font-hei);
+  font-size: 11px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+.issue-cover-mast--ghost {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent);
+}
+.issue-cover-en {
+  letter-spacing: 0.28em;
+  opacity: 0.8;
+  font-size: 9px;
+}
+.issue-cover-banner {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--issue-ink);
+  font-family: var(--font-hei);
+  font-size: 13px;
+  letter-spacing: 0.4em;
+}
+.issue-cover-no {
+  font-family: var(--font-song);
+  letter-spacing: 0.08em;
+  font-size: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 2px 8px 0;
+}
+.issue-cover-foot {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px 18px 20px;
+}
+.issue-cover-foot--flush {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent);
+}
+.issue-cover-kicker {
+  font-family: var(--font-hei);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.issue-cover h3 {
+  margin-top: 8px;
+  font-family: var(--font-song);
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 1.15;
+}
+.issue-cover-frame {
+  inset: 10px;
+  border: 1px solid rgba(255, 244, 220, 0.45);
+  pointer-events: none;
+}
+.issue-cover-spine {
+  top: 22px;
+  right: 16px;
+  writing-mode: vertical-rl;
+  font-family: var(--font-song);
+  font-size: 13px;
+  letter-spacing: 0.55em;
+  opacity: 0.8;
+}
+.issue-cover-plate {
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 16px 16px 14px;
+  background: color-mix(in srgb, var(--issue-ink) 92%, black);
+}
+.issue-cover-plate h3 {
+  font-size: 32px;
+}
+.issue-cover-split {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 18px;
+  background: color-mix(in srgb, var(--issue-ink) 88%, #f4f1ea);
+  color: #f7f1e6;
+}
+.issue-cover-split h3 {
+  margin-top: 4px;
+  font-size: 34px;
+}
+.issue-cover-season {
+  margin-top: 6px;
+  font-family: var(--font-hei);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  opacity: 0.75;
+}
+.issue-cover-giant {
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-song);
+  font-size: 140px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+.issue-cover--river .issue-cover-mast {
+  background: color-mix(in srgb, var(--issue-ink) 82%, transparent);
+}
+.issue-cover--port .issue-cover-shade {
+  background: linear-gradient(to top, rgba(80, 16, 10, 0.55), transparent 50%);
+}
+.issue-cover--incense .issue-cover-shade {
+  background: linear-gradient(to top, rgba(40, 24, 16, 0.2), transparent 40%);
+}
+.issue-cover--road .issue-cover-shade {
+  background: linear-gradient(to top, transparent 32%, rgba(0, 0, 0, 0.08) 100%);
+}
+.issue-cover--plateau .issue-cover-shade {
+  background: linear-gradient(to top, rgba(20, 32, 28, 0.7) 0%, transparent 55%);
+}
+
+.issue-cover-solo {
+  display: block;
+  max-width: 340px;
+  box-shadow:
+    0 18px 40px rgba(20, 16, 10, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.08) inset;
+}
+
+.issue-deck-section {
+  padding-top: 4.5rem;
+  overflow: hidden;
+}
+.issue-deck {
+  position: relative;
+  height: min(62vw, 540px);
+  margin-top: 2.2rem;
+  perspective: 1600px;
+  perspective-origin: 50% 45%;
+}
+.issue-deck-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(300px, 68vw);
+  aspect-ratio: 3 / 4;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.5s ease,
+    filter 0.5s ease;
+  box-shadow:
+    0 28px 70px rgba(16, 12, 8, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+.issue-deck-card .issue-cover {
+  height: 100%;
+  aspect-ratio: auto;
+  box-shadow: none;
+}
+.issue-deck-meta {
+  margin-top: 1.6rem;
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
+}
+.issue-deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.issue-deck-nav {
+  font-family: var(--font-hei);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.issue-deck-nav:hover {
+  color: var(--color-seal);
+}
+.issue-deck-dots {
+  display: flex;
+  gap: 8px;
+}
+.issue-deck-dots button {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  border: 0;
+  padding: 0;
+  background: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  cursor: pointer;
+}
+.issue-deck-dots button.is-on {
+  background: var(--color-seal);
+  transform: scale(1.2);
+}
+.issue-deck-kicker {
+  margin-top: 1.4rem;
+  font-family: var(--font-hei);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--color-ink-soft);
+}
+.issue-deck-title {
+  margin-top: 10px;
+  font-family: var(--font-song);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+}
+.issue-deck-blurb {
+  margin: 12px auto 0;
+  max-width: 36em;
+  font-family: var(--font-song);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.issue-deck-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 18px;
+  font-family: var(--font-hei);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--color-seal);
+}
+
+html.dark .issue-deck-card {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
 }
 
 .oa-section-title {
@@ -602,8 +915,12 @@ a:hover .oa-arrow {
     padding-bottom: 0;
   }
   .oa-featured-left,
-  .oa-square-split {
+  .oa-square-split,
+  .oa-feature-stack {
     grid-column: span 12;
+  }
+  .oa-feature-stack {
+    min-height: 0;
   }
   .oa-square-split {
     flex-direction: column;

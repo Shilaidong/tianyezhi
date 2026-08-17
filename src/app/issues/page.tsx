@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { getAllPosts } from "@/lib/posts";
+import Link from "next/link";
 import { getIssues } from "@/lib/issues";
-import ArticleCard from "@/components/article-card";
+import IssueCover from "@/components/issue-cover";
 
 export const metadata: Metadata = {
   title: "特刊",
@@ -9,45 +9,29 @@ export const metadata: Metadata = {
 };
 
 export default async function IssuesPage() {
-  const posts = await getAllPosts();
   const issues = await getIssues();
 
   return (
     <div className="mx-auto max-w-6xl px-6 pt-12 pb-20">
-      {issues.map((issue, index) => {
-        const issuePosts = posts.filter((post) => post.issue === issue.label);
-        const Heading = index === 0 ? "h1" : "h2";
-        return (
-          <section key={issue.n} className={index === 0 ? undefined : "mt-20"}>
-            <header
-              className="relative overflow-hidden px-8 py-14 text-white sm:px-14"
-              style={{ backgroundColor: issue.color }}
-            >
-              <div
-                aria-hidden="true"
-                className="vertical-rl absolute right-6 top-6 select-none font-song text-lg font-bold tracking-[0.5em] text-white/40 sm:right-10 sm:text-2xl"
-              >
-                田野志
-              </div>
-              <p className="oa-label text-white/70">
-                ISSUE No.{issue.n} · {issue.season}
-              </p>
-              <Heading className="mt-4 font-song text-[44px] font-semibold tracking-[0.2em] leading-[1.2] sm:text-[56px]">
-                {issue.label}
-              </Heading>
-              <p className="mt-6 max-w-2xl font-body text-[17px] font-light leading-relaxed text-white/85">
-                {issue.blurb}
-              </p>
-            </header>
+      <header className="max-w-2xl">
+        <h1 className="font-song text-[40px] font-semibold tracking-[0.25em] sm:text-[46px]">特刊</h1>
+        <p className="oa-label mt-4 text-ink-soft">ISSUES</p>
+        <p className="mt-6 font-song text-[16px] leading-relaxed text-ink-soft">
+          每期一个主题。点开封面，就是这一期的全部文章。
+        </p>
+      </header>
 
-            <div className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {issuePosts.map((post) => (
-                <ArticleCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
+      <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {issues.map((issue) => (
+          <Link key={issue.n} href={`/issues/${issue.n}`} className="issue-cover-solo group">
+            <IssueCover issue={issue} />
+            <p className="mt-4 font-song text-[15px] tracking-[0.16em] group-hover:text-seal">
+              {issue.label}
+            </p>
+            <p className="mt-1 oa-label text-ink-soft">{issue.season}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

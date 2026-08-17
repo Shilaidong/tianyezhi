@@ -44,14 +44,93 @@ export const ISSUES: Issue[] = [
     blurb:
       "路还在走。盐还在田里晒，桥不走车了车走下一座，驿站把第十八个名字留给了乡。货换了，石头还在。",
   },
+  {
+    n: 5,
+    title: "西藏",
+    season: "2028 春",
+    color: "#3f534c",
+    label: "第五期 · 西藏",
+    blurb:
+      "西藏边境上的日子不在海报里。它在吉隆沟的铁皮棚上，在日屋的风里，在派镇下来的货车上，在勒布沟先听见的水声里。",
+  },
 ];
 
 export const CURRENT_ISSUE = ISSUES[0];
 export const NEXT_ISSUE = ISSUES[1];
 export const THIRD_ISSUE = ISSUES[2];
 export const FOURTH_ISSUE = ISSUES[3];
+export const FIFTH_ISSUE = ISSUES[4];
 
 export const ISSUE_LABEL = CURRENT_ISSUE.label;
 export const NEXT_ISSUE_LABEL = NEXT_ISSUE.label;
 export const THIRD_ISSUE_LABEL = THIRD_ISSUE.label;
 export const FOURTH_ISSUE_LABEL = FOURTH_ISSUE.label;
+export const FIFTH_ISSUE_LABEL = FIFTH_ISSUE.label;
+
+type IssueRow = {
+  n: number;
+  title: string;
+  season: string;
+  color: string;
+  blurb: string;
+  label: string;
+  current: number;
+};
+
+function mapIssue(row: IssueRow): Issue {
+  return {
+    n: Number(row.n),
+    title: row.title,
+    season: row.season,
+    color: row.color,
+    blurb: row.blurb,
+    label: row.label,
+  };
+}
+
+export async function getIssues(): Promise<Issue[]> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const { results } = await db
+      .prepare("SELECT n, title, season, color, blurb, label, current FROM issues ORDER BY n")
+      .all<IssueRow>();
+    if (results?.length) return results.map(mapIssue);
+  }
+  return ISSUES;
+}
+
+export async function getCurrentIssue(): Promise<Issue> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const row =
+      (await db
+        .prepare(
+          "SELECT n, title, season, color, blurb, label, current FROM issues WHERE current = 1 ORDER BY n LIMIT 1",
+        )
+        .first<IssueRow>()) ??
+      (await db
+        .prepare(
+          "SELECT n, title, season, color, blurb, label, current FROM issues ORDER BY n LIMIT 1",
+        )
+        .first<IssueRow>());
+    if (row) return mapIssue(row);
+  }
+  return CURRENT_ISSUE;
+}
+
+export async function getIssueByN(n: number): Promise<Issue | undefined> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const row = await db
+      .prepare(
+        "SELECT n, title, season, color, blurb, label, current FROM issues WHERE n = ?",
+      )
+      .bind(n)
+      .first<IssueRow>();
+    return row ? mapIssue(row) : undefined;
+  }
+  return ISSUES.find((issue) => issue.n === n);
+}

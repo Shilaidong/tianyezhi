@@ -33,6 +33,7 @@ src/lib/                  # posts（内容）/ sections（栏目）/ authors（�
 PLAN.md                   # 总体编辑与技术规划（含 AI 管线）
 WRITING-STYLE.md          # 写作：一人一声；改写法，不是改标点
 IMAGE-STYLE.md            # 配图与图注
+PUBLISH.md                # 发稿：仓库写权限即可，不要 wrangler login
 SUBMISSIONS-PROMPT.md     # 投稿邮件提示词
 ```
 
@@ -42,7 +43,17 @@ SUBMISSIONS-PROMPT.md     # 投稿邮件提示词
 
 ## 如何发布一篇新文章
 
-在 `content/posts/` 新建 `.md` 文件，文件名即 URL slug：
+见 [PUBLISH.md](PUBLISH.md)，网站主页底部和 [`/cli`](/cli) 是同一份。有这个仓库写权限就能发，**不要** `wrangler login`。
+
+本地只写 Markdown 和照片，核对后推进 `main`，GitHub Actions 灌 D1、部署。排版与 `npm run dev` 相同。
+
+完整稿三件套：`content/posts/{slug}.md`、`public/images/{slug}.jpg`（及文内图）、可选 `content/submissions/{slug}.md`。
+
+```powershell
+npm run tyz -- check chu-zhen-yao-guo-he
+```
+
+frontmatter 字段：
 
 ```markdown
 ---

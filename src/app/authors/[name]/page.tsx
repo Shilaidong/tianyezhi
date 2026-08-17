@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AUTHORS, getAuthorBySlug as getAuthor } from "@/lib/authors";
+import { getAuthorBySlug as getAuthor } from "@/lib/authors";
 import { getPost, getPostsByAuthor, type Post } from "@/lib/posts";
 import { getAllLetters } from "@/lib/letters";
 import ArticleCard from "@/components/article-card";
-
-export function generateStaticParams() {
-  return AUTHORS.map((author) => ({ name: author.slug }));
-}
 
 export async function generateMetadata({
   params,
@@ -15,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ name: string }>;
 }): Promise<Metadata> {
   const { name } = await params;
-  const author = getAuthor(name);
+  const author = await getAuthor(name);
   if (!author) return {};
   return { title: author.name, description: author.bio };
 }
@@ -26,14 +22,17 @@ export default async function AuthorPage({
   params: Promise<{ name: string }>;
 }) {
   const { name } = await params;
-  const author = getAuthor(name);
+  const author = await getAuthor(name);
   if (!author) notFound();
 
-  const authored = getPostsByAuthor(author.name);
-  const credited = getAllLetters()
-    .filter((letter) => letter.author === author.name)
-    .map((letter) => getPost(letter.postSlug))
-    .filter((post): post is Post => Boolean(post));
+  const authored = await getPostsByAuthor(author.name);
+  const credited = (
+    await Promise.all(
+      (await getAllLetters())
+        .filter((letter) => letter.author === author.name)
+        .map((letter) => getPost(letter.postSlug)),
+    )
+  ).filter((post): post is Post => Boolean(post));
   const seen = new Set(authored.map((post) => post.slug));
   const posts = [...authored, ...credited.filter((post) => !seen.has(post.slug))];
 

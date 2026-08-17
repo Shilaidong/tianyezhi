@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "tianyezhi",
+  "main": ".open-next/worker.js",
+  "account_id": "4df0efbadee174805b849a9775ea5acc",
+  "compatibility_date": "2026-08-17",
+  "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
+  "workers_dev": true,
+  "preview_urls": true,
+  "observability": {
+    "enabled": true,
+  },
+  "routes": [
+    { "pattern": "edgeland.org", "custom_domain": true },
+    { "pattern": "www.edgeland.org", "custom_domain": true },
+    { "pattern": "tianyezhi.edgeland.org", "custom_domain": true },
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tianyezhi",
+      "database_id": "0a4d9e52-f9a1-472c-83a5-5d07b015095c",
+      "migrations_dir": "migrations",
+    },
+  ],
+  // Enable after R2 is activated in the Cloudflare dashboard:
+  // "r2_buckets": [{ "binding": "MEDIA", "bucket_name": "tianyezhi-media" }],
+}

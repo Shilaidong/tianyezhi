@@ -1,8 +1,6 @@
-import fs from "node:fs";
-import path from "node:path";
-import matter from "gray-matter";
 import type { SectionId } from "./sections";
-import { getAllPosts } from "./posts";
+import { getDb } from "./cf";
+import { getAllLettersFromFiles } from "./letters-fs";
 
 export type Letter = {
   fileSlug: string;
@@ -15,40 +13,54 @@ export type Letter = {
   body: string;
 };
 
-const LETTERS_DIR = path.join(process.cwd(), "content", "submissions");
+type LetterRow = {
+  file_slug: string;
+  subject: string;
+  author: string;
+  section: string;
+  post_slug: string;
+  phone: string;
+  wechat: string;
+  body: string;
+};
 
-export function getAllLetters(): Letter[] {
-  if (!fs.existsSync(LETTERS_DIR)) return [];
-  const posts = getAllPosts();
-  const dateOf = (slug: string) => posts.find((post) => post.slug === slug)?.date ?? "";
-
-  return fs
-    .readdirSync(LETTERS_DIR)
-    .filter((file) => file.endsWith(".md"))
-    .flatMap((file) => {
-      try {
-        const raw = fs.readFileSync(path.join(LETTERS_DIR, file), "utf8");
-        const { data, content } = matter(raw);
-        return [
-          {
-            fileSlug: file.replace(/\.md$/, ""),
-            subject: String(data.subject ?? ""),
-            author: String(data.author ?? ""),
-            section: String(data.section ?? "sanwen") as SectionId,
-            postSlug: String(data.slug ?? file.replace(/\.md$/, "")),
-            phone: String(data.phone ?? ""),
-            wechat: String(data.wechat ?? ""),
-            body: content.trim(),
-          } satisfies Letter,
-        ];
-      } catch {
-        return [];
-      }
-    })
-    .sort((a, b) => {
-      const dateA = dateOf(a.postSlug);
-      const dateB = dateOf(b.postSlug);
-      return dateA < dateB ? 1 : dateA > dateB ? -1 : 0;
-    });
+function mapLetter(row: LetterRow): Letter {
+  return {
+    fileSlug: row.file_slug,
+    subject: row.subject,
+    author: row.author,
+    section: row.section as SectionId,
+    postSlug: row.post_slug,
+    phone: row.phone ?? "",
+    wechat: row.wechat ?? "",
+    body: row.body ?? "",
+  };
 }
 
+function sortLetters(letters: Letter[], dateOf: (slug: string) => string): Letter[] {
+  return [...letters].sort((a, b) => {
+    const dateA = dateOf(a.postSlug);
+    const dateB = dateOf(b.postSlug);
+    return dateA < dateB ? 1 : dateA > dateB ? -1 : 0;
+  });
+}
+
+export async function getAllLetters(): Promise<Letter[]> {
+  const db = await getDb();
+  if (db) {
+    const { results } = await db
+      .prepare(
+        `SELECT l.file_slug, l.subject, l.author, l.section, l.post_slug, l.phone, l.wechat, l.body
+         FROM letters l
+         LEFT JOIN posts p ON p.slug = l.post_slug
+         ORDER BY p.date DESC`,
+      )
+      .all<LetterRow>();
+    return (results ?? []).map(mapLetter);
+  }
+
+  const { getAllPostsFromFiles } = await import("./posts-fs");
+  const posts = getAllPostsFromFiles();
+  const dateOf = (slug: string) => posts.find((post) => post.slug === slug)?.date ?? "";
+  return sortLetters(getAllLettersFromFiles(), dateOf);
+}

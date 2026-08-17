@@ -28,7 +28,7 @@ export default async function SectionPage({
   const section = getSection(id);
   if (!section) notFound();
 
-  const posts = getPostsBySection(section.id);
+  const posts = await getPostsBySection(section.id);
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-14">

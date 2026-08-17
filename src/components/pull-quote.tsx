@@ -29,9 +29,7 @@ export default function PullQuote({
           —— {source}
         </figcaption>
         {enSub && (
-          <span
-            className={`oa-native oa-native--en ${dark ? "oa-native--dark" : ""}`}
-          >
+          <span className="oa-native oa-native--en">
             {enSub}
           </span>
         )}

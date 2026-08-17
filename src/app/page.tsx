@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
-import { CURRENT_ISSUE } from "@/lib/issues";
+import { getCurrentIssue } from "@/lib/issues";
 import ArticleCard from "@/components/article-card";
 import FeaturedHero from "@/components/featured-hero";
 import SquareSplit from "@/components/square-split";
@@ -10,10 +10,12 @@ import EyesStrip from "@/components/eyes-strip";
 import PodcastBlock from "@/components/podcast-block";
 import GoodsBlock from "@/components/goods-block";
 import SupportBlock from "@/components/support-block";
+import CliGuide from "@/components/cli-guide";
 import { IconArrowRight } from "@/components/icons";
 
-export default function Home() {
-  const posts = getAllPosts();
+export default async function Home() {
+  const posts = await getAllPosts();
+  const currentIssue = await getCurrentIssue();
   const featured = posts.find((post) => post.featured) ?? posts[0];
   const splits = posts.filter((post) => post.slug !== featured?.slug).slice(0, 3);
   const used = new Set([featured, ...splits].filter(Boolean).map((p) => p!.slug));
@@ -62,26 +64,27 @@ export default function Home() {
       <PodcastBlock />
       <GoodsBlock />
       <SupportBlock />
+      <CliGuide />
 
       <section className="oa-container oa-section">
         <Link
           href="/issues"
           className="block px-8 py-14 text-white sm:px-16"
-          style={{ backgroundColor: CURRENT_ISSUE.color }}
+          style={{ backgroundColor: currentIssue.color }}
         >
           <p className="oa-accent text-white/70">
-            特刊 · ISSUE No.{CURRENT_ISSUE.n} · {CURRENT_ISSUE.season}
+            特刊 · ISSUE No.{currentIssue.n} · {currentIssue.season}
           </p>
           <div className="mt-4 flex flex-wrap items-end justify-between gap-6">
             <h2 className="font-song text-[34px] font-normal tracking-[0.16em] sm:text-[44px]">
-              创刊号 · {CURRENT_ISSUE.title}
+              创刊号 · {currentIssue.title}
             </h2>
             <span className="oa-accent text-white/70 inline-flex items-center">
               浏览本期 <IconArrowRight className="oa-arrow" />
             </span>
           </div>
           <p className="mt-5 max-w-2xl font-body text-[16.5px] font-light leading-7 text-white/85">
-            {CURRENT_ISSUE.blurb}
+            {currentIssue.blurb}
           </p>
         </Link>
       </section>

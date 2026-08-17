@@ -3,8 +3,8 @@ import { getPostsBySection } from "@/lib/posts";
 import OverlayCard from "./overlay-card";
 import { IconArrowRight } from "./icons";
 
-export default function EyesStrip() {
-  const posts = getPostsBySection("yingxiang");
+export default async function EyesStrip() {
+  const posts = await getPostsBySection("yingxiang");
   if (posts.length === 0) return null;
 
   return (

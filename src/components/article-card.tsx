@@ -4,9 +4,9 @@ import { getSection } from "@/lib/sections";
 import { getAuthorByName } from "@/lib/authors";
 import CoverPhoto from "./cover-photo";
 
-export default function ArticleCard({ post }: { post: Post }) {
+export default async function ArticleCard({ post }: { post: Post }) {
   const section = getSection(post.section);
-  const author = getAuthorByName(post.author);
+  const author = await getAuthorByName(post.author);
   const label = [
     section?.name ?? post.section,
     section?.aiCompiled ? "AI 汇编" : null,

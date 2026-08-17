@@ -18,7 +18,7 @@ export default function SupportBlock() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/submissions"
-            className="oa-label border border-ink px-8 py-3 text-ink transition-colors hover:border-seal hover:bg-seal hover:text-paper"
+            className="oa-label border border-ink px-8 py-3 text-ink transition-colors hover:border-seal hover:bg-seal hover:text-white"
           >
             成为撰稿人
           </Link>

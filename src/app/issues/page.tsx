@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/posts";
-import { ISSUES } from "@/lib/issues";
+import { getIssues } from "@/lib/issues";
 import ArticleCard from "@/components/article-card";
 
 export const metadata: Metadata = {
@@ -8,33 +8,34 @@ export const metadata: Metadata = {
   description: "田野志每年一个重量主题，慢慢做，认真做。",
 };
 
-export default function IssuesPage() {
-  const posts = getAllPosts();
+export default async function IssuesPage() {
+  const posts = await getAllPosts();
+  const issues = await getIssues();
 
   return (
     <div className="mx-auto max-w-6xl px-6 pt-12 pb-20">
-      {ISSUES.map((issue, index) => {
+      {issues.map((issue, index) => {
         const issuePosts = posts.filter((post) => post.issue === issue.label);
         const Heading = index === 0 ? "h1" : "h2";
         return (
           <section key={issue.n} className={index === 0 ? undefined : "mt-20"}>
             <header
-              className="relative overflow-hidden px-8 py-14 text-paper sm:px-14"
+              className="relative overflow-hidden px-8 py-14 text-white sm:px-14"
               style={{ backgroundColor: issue.color }}
             >
               <div
                 aria-hidden="true"
-                className="vertical-rl absolute right-6 top-6 select-none font-song text-lg font-bold tracking-[0.5em] text-paper/40 sm:right-10 sm:text-2xl"
+                className="vertical-rl absolute right-6 top-6 select-none font-song text-lg font-bold tracking-[0.5em] text-white/40 sm:right-10 sm:text-2xl"
               >
                 田野志
               </div>
-              <p className="oa-label text-paper/70">
+              <p className="oa-label text-white/70">
                 ISSUE No.{issue.n} · {issue.season}
               </p>
               <Heading className="mt-4 font-song text-[44px] font-semibold tracking-[0.2em] leading-[1.2] sm:text-[56px]">
                 {issue.label}
               </Heading>
-              <p className="mt-6 max-w-2xl font-body text-[17px] font-light leading-relaxed text-paper/85">
+              <p className="mt-6 max-w-2xl font-body text-[17px] font-light leading-relaxed text-white/85">
                 {issue.blurb}
               </p>
             </header>

@@ -3,8 +3,8 @@ import { getPostsBySection } from "@/lib/posts";
 import OverlayCard from "./overlay-card";
 import { IconArrowRight } from "./icons";
 
-export default function PodcastBlock() {
-  const posts = getPostsBySection("shengyin");
+export default async function PodcastBlock() {
+  const posts = await getPostsBySection("shengyin");
   const latest = posts[0];
 
   return (

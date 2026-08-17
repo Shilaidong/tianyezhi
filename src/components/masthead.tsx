@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SECTIONS } from "@/lib/sections";
-import { CURRENT_ISSUE } from "@/lib/issues";
 import { IconFacebook, IconX, IconYouTube, IconInstagram, IconSearch } from "./icons";
+import ThemeToggle from "./theme-toggle";
 
 export default function Masthead() {
   return (
@@ -19,7 +19,7 @@ export default function Masthead() {
               <text
                 x="0"
                 y="68"
-                fill="#000"
+                fill="currentColor"
                 fontSize="78"
                 fontWeight="900"
                 letterSpacing="6"
@@ -30,26 +30,29 @@ export default function Masthead() {
             </svg>
             <span className="oa-native oa-native--en">China, seen from its edges</span>
           </Link>
-          <div className="oa-social">
-            <Link href="/about" className="oa-login">
-              Login
-            </Link>
-            <span className="oa-pipe">|</span>
-            <a href="#" aria-label="Facebook" className="oa-social-icon">
-              <IconFacebook />
-            </a>
-            <a href="#" aria-label="X" className="oa-social-icon">
-              <IconX />
-            </a>
-            <a href="#" aria-label="YouTube" className="oa-social-icon">
-              <IconYouTube />
-            </a>
-            <a href="#" aria-label="Instagram" className="oa-social-icon">
-              <IconInstagram />
-            </a>
-            <div className="oa-extra">
-              <h2 className="oa-support">支持田野志</h2>
-              <h3>支持非营利写作与独立记录</h3>
+          <div className="oa-header-tools">
+            <ThemeToggle />
+            <div className="oa-social">
+              <Link href="/about" className="oa-login">
+                Login
+              </Link>
+              <span className="oa-pipe">|</span>
+              <a href="#" aria-label="Facebook" className="oa-social-icon">
+                <IconFacebook />
+              </a>
+              <a href="#" aria-label="X" className="oa-social-icon">
+                <IconX />
+              </a>
+              <a href="#" aria-label="YouTube" className="oa-social-icon">
+                <IconYouTube />
+              </a>
+              <a href="#" aria-label="Instagram" className="oa-social-icon">
+                <IconInstagram />
+              </a>
+              <div className="oa-extra">
+                <h2 className="oa-support">支持田野志</h2>
+                <h3>支持非营利写作与独立记录</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +65,7 @@ export default function Masthead() {
               </Link>
             ))}
             <Link href="/issues" className="oa-nav-link oa-nav-colored">
-              {CURRENT_ISSUE.title}
+              特刊
             </Link>
           </div>
           <div className="oa-nav-right">

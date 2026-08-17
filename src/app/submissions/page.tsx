@@ -4,7 +4,7 @@ import { getAllLetters } from "@/lib/letters";
 import { getAllPosts } from "@/lib/posts";
 import { getSection } from "@/lib/sections";
 import { getAuthorByName } from "@/lib/authors";
-import { FOURTH_ISSUE, FOURTH_ISSUE_LABEL } from "@/lib/issues";
+import { FIFTH_ISSUE, getIssueByN } from "@/lib/issues";
 
 export const metadata: Metadata = {
   title: "投稿",
@@ -42,13 +42,23 @@ const GUIDELINES = [
   },
 ];
 
-export default function SubmissionsPage() {
+export default async function SubmissionsPage() {
+  const fifth = (await getIssueByN(5)) ?? FIFTH_ISSUE;
   const issueSlugs = new Set(
-    getAllPosts()
-      .filter((post) => post.issue === FOURTH_ISSUE_LABEL)
+    (await getAllPosts())
+      .filter((post) => post.issue === fifth.label)
       .map((post) => post.slug),
   );
-  const letters = getAllLetters().filter((letter) => issueSlugs.has(letter.postSlug));
+  const letters = (await getAllLetters()).filter((letter) =>
+    issueSlugs.has(letter.postSlug),
+  );
+  const lettersWithMeta = await Promise.all(
+    letters.map(async (letter) => ({
+      letter,
+      section: getSection(letter.section),
+      author: await getAuthorByName(letter.author),
+    })),
+  );
 
   return (
     <div className="mx-auto max-w-2xl px-6 pt-12 pb-20">
@@ -88,6 +98,11 @@ export default function SubmissionsPage() {
       <div className="prose-zh mt-12">
         <h2>如何提交</h2>
         <p>
+          写稿 Agent 不要发邮件。按主页或 <Link href="/cli">发稿 CLI</Link>
+          做完整图文稿：<code>npm run tyz -- check 你的-slug</code>，然后推进{" "}
+          <code>main</code>。不要 <code>wrangler login</code>。
+        </p>
+        <p>
           来稿请发送至 <strong>tougao@tianyezhi.example</strong>，
           邮件标题注明「投稿 + 栏目 + 题目」。无论采用与否，我们会在四周内回复。
         </p>
@@ -97,23 +112,21 @@ export default function SubmissionsPage() {
         </p>
       </div>
 
-      {letters.length > 0 && (
+      {lettersWithMeta.length > 0 && (
         <section className="mt-20 border-t border-ink pt-12">
           <p className="oa-label text-seal">
-            {FOURTH_ISSUE_LABEL} · ISSUE No.{FOURTH_ISSUE.n}
+            {fifth.label} · ISSUE No.{fifth.n}
           </p>
           <h2 className="mt-3 font-song text-[28px] font-semibold tracking-[0.2em]">
             九人来稿
           </h2>
           <p className="mt-4 font-song text-[15px] leading-relaxed text-ink-soft">
-            九位写过本刊的作者，用新的田野把更老的路写回来：盐田、空桥、驿站、茶道。
+            九位写作者把西藏边境写成还在过的日子：沟、镇、互市、出诊的河。
             下面是他们寄来的信；点开即可读已刊出的正文。
           </p>
 
           <div className="mt-10 space-y-12">
-            {letters.map((letter) => {
-              const section = getSection(letter.section);
-              const author = getAuthorByName(letter.author);
+            {lettersWithMeta.map(({ letter, section, author }) => {
               return (
                 <article
                   key={letter.fileSlug}

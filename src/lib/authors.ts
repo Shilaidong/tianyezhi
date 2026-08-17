@@ -242,14 +242,69 @@ export const AUTHORS: Author[] = [
     bio: "佤族。木鼓房看房。鼓不是给游客敲的。",
     network: true,
   },
+  {
+    slug: "gong-jue",
+    name: "贡觉",
+    place: "西藏 · 仲巴",
+    bio: "仲巴人。玛永边贸点摆摊。风先到，货后到。",
+    network: true,
+  },
 ];
 
 export const BORDERWIRE_AUTHOR = "田野志 · 边境雷达";
 
-export function getAuthorBySlug(slug: string): Author | undefined {
+type AuthorRow = {
+  slug: string;
+  name: string;
+  place: string;
+  bio: string;
+  network: number;
+};
+
+function mapAuthor(row: AuthorRow): Author {
+  return {
+    slug: row.slug,
+    name: row.name,
+    place: row.place,
+    bio: row.bio,
+    network: Boolean(row.network),
+  };
+}
+
+export async function getAllAuthors(): Promise<Author[]> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const { results } = await db
+      .prepare("SELECT slug, name, place, bio, network FROM authors")
+      .all<AuthorRow>();
+    if (results?.length) return results.map(mapAuthor);
+  }
+  return AUTHORS;
+}
+
+export async function getAuthorBySlug(slug: string): Promise<Author | undefined> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const row = await db
+      .prepare("SELECT slug, name, place, bio, network FROM authors WHERE slug = ?")
+      .bind(slug)
+      .first<AuthorRow>();
+    return row ? mapAuthor(row) : undefined;
+  }
   return AUTHORS.find((a) => a.slug === slug);
 }
 
-export function getAuthorByName(name: string): Author | undefined {
+export async function getAuthorByName(name: string): Promise<Author | undefined> {
+  const { getDb } = await import("./cf");
+  const db = await getDb();
+  if (db) {
+    const row = await db
+      .prepare("SELECT slug, name, place, bio, network FROM authors WHERE name = ?")
+      .bind(name)
+      .first<AuthorRow>();
+    return row ? mapAuthor(row) : undefined;
+  }
   return AUTHORS.find((a) => a.name === name);
 }

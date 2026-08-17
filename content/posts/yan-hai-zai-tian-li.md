@@ -6,7 +6,6 @@ place: 西藏 · 芒康
 date: 2026-10-12
 section: texie
 issue: 第四期 · 古道
-featured: true
 motif: terrace
 image: /images/yan-hai-zai-tian-li.jpg
 native: "ཚྭ་ཁ་ལོ།"

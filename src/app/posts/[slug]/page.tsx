@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPost, getPostsBySection, formatDate } from "@/lib/posts";
+import { getPost, getPostsBySection, formatDate } from "@/lib/posts";
 import { getSection } from "@/lib/sections";
 import { getAuthorByName } from "@/lib/authors";
 import CoverPhoto from "@/components/cover-photo";
@@ -9,17 +9,13 @@ import Prose from "@/components/prose";
 import ArticleCard from "@/components/article-card";
 import { IconCheck } from "@/components/icons";
 
-export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
-}
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
   if (!post) return {};
   return { title: post.title, description: post.dek };
 }
@@ -30,12 +26,12 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
   if (!post) notFound();
 
   const section = getSection(post.section);
-  const author = getAuthorByName(post.author);
-  const related = getPostsBySection(post.section)
+  const author = await getAuthorByName(post.author);
+  const related = (await getPostsBySection(post.section))
     .filter((item) => item.slug !== post.slug)
     .slice(0, 3);
 
@@ -85,7 +81,7 @@ export default async function PostPage({
       </div>
 
       {section?.aiCompiled && (
-        <div className="mx-auto mt-10 max-w-[700px] border border-black/10 bg-[#f0f0f0] px-5 py-4 text-[13px] leading-relaxed">
+        <div className="mx-auto mt-10 max-w-[700px] border border-ink/10 bg-paper-deep px-5 py-4 text-[13px] leading-relaxed">
           本文由「边境雷达」依据公开信源自动汇编，经编辑人工核读与点发。
           田野志的特写、散文、影像与口述栏目永远由人创作。
         </div>

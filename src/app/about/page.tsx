@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SECTIONS } from "@/lib/sections";
-import { AUTHORS } from "@/lib/authors";
+import { getAllAuthors } from "@/lib/authors";
 
 export const metadata: Metadata = {
   title: "关于",
   description: "关于田野志：一本写给中国边境的文学杂志。",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const authors = await getAllAuthors();
   return (
     <div className="mx-auto max-w-2xl px-6 pt-12">
       <header className="text-center">
@@ -42,7 +43,7 @@ export default function AboutPage() {
       </div>
 
       <ul className="mt-6 space-y-5">
-        {AUTHORS.map((author) => (
+        {authors.map((author) => (
           <li key={author.slug} className="border-b border-ink/10 pb-5">
             <p className="font-song text-lg font-bold">
               <Link

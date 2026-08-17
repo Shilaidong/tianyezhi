@@ -646,14 +646,17 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   overflow: hidden;
 }
 .oa-featured-left.oa-featured-hero {
-  grid-column: span 5;
-  aspect-ratio: 1 / 1;
+  grid-column: span 7;
+  aspect-ratio: 3 / 2;
   height: auto;
   min-height: 0;
   padding: 0 8%;
 }
+.oa-featured-left.oa-featured-hero h2 {
+  font-size: 26px;
+}
 .issue-deck-section--aside {
-  grid-column: span 7;
+  grid-column: span 5;
   position: relative;
   padding-top: 0;
   height: auto;
@@ -1003,7 +1006,7 @@ a:hover .oa-arrow {
     min-height: 0;
   }
   .oa-featured-left.oa-featured-hero {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 2;
     height: auto;
     min-height: 0;
   }

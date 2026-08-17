@@ -38,14 +38,14 @@ export default function IssueDeck({
   const current = ordered[active];
   if (!current) return null;
 
-  const spread = aside ? 26 : 42;
-  const tilt = aside ? -11 : -18;
-  const depth = aside ? -70 : -110;
+  const spread = aside ? 16 : 42;
+  const tilt = aside ? -8 : -18;
+  const depth = aside ? -88 : -110;
 
   return (
     <section className={`issue-deck-section${aside ? " issue-deck-section--aside" : ""}`}>
       <div className={aside ? "issue-deck-head" : "oa-container"}>
-        <div className="flex items-baseline justify-between border-b border-ink pb-3">
+        <div className={aside ? "issue-deck-head-row" : "flex items-baseline justify-between border-b border-ink pb-3"}>
           <div>
             <h2 className={aside ? "issue-deck-aside-title" : "oa-section-title"}>特刊</h2>
             {!aside && <span className="oa-native oa-native--en">The Issues</span>}
@@ -72,10 +72,10 @@ export default function IssueDeck({
         {ordered.map((issue, index) => {
           const offset = index - active;
           const abs = Math.abs(offset);
-          if (abs > 2) return null;
+          if (abs > (aside ? 1 : 2)) return null;
           const style = {
             zIndex: 20 - abs,
-            transform: `translate(-50%, -50%) translate3d(${offset * spread}%, ${abs * 10}px, ${abs * depth}px) rotateY(${offset * tilt}deg) scale(${1 - abs * 0.12})`,
+            transform: `translate(-50%, -50%) translate3d(${offset * spread}%, ${abs * (aside ? 6 : 10)}px, ${abs * depth}px) rotateY(${offset * tilt}deg) scale(${1 - abs * (aside ? 0.07 : 0.12)})`,
             opacity: abs === 2 ? 0.38 : 1,
             filter: abs === 0 ? "none" : "brightness(0.7)",
           };
@@ -128,14 +128,18 @@ export default function IssueDeck({
             下一本
           </button>
         </div>
-        <p className="issue-deck-kicker">
-          ISSUE No.{String(current.n).padStart(2, "0")} · {current.season}
-        </p>
-        <h3 className="issue-deck-title">{current.label}</h3>
-        {!aside && <p className="issue-deck-blurb">{current.blurb}</p>}
-        <Link href={`/issues/${current.n}`} className="issue-deck-cta">
-          打开本期 <IconArrowRight className="oa-arrow" />
-        </Link>
+        {!aside && (
+          <>
+            <p className="issue-deck-kicker">
+              ISSUE No.{String(current.n).padStart(2, "0")} · {current.season}
+            </p>
+            <h3 className="issue-deck-title">{current.label}</h3>
+            <p className="issue-deck-blurb">{current.blurb}</p>
+            <Link href={`/issues/${current.n}`} className="issue-deck-cta">
+              打开本期 <IconArrowRight className="oa-arrow" />
+            </Link>
+          </>
+        )}
       </div>
     </section>
   );

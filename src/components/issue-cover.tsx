@@ -21,7 +21,7 @@ export default function IssueCover({
         src={cover.image}
         alt={`${issue.label}封面`}
         fill
-        sizes="(max-width: 700px) 72vw, 340px"
+        sizes="(max-width: 850px) 78vw, (max-width: 1400px) 42vw, 520px"
         className="issue-cover-photo"
         priority={priority}
       />

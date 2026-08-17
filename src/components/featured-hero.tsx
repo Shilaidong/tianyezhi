@@ -6,7 +6,7 @@ import CoverPhoto from "./cover-photo";
 export default function FeaturedHero({ post }: { post: Post }) {
   const section = getSection(post.section);
   return (
-    <Link href={`/posts/${post.slug}`} className="oa-featured-left">
+    <Link href={`/posts/${post.slug}`} className="oa-featured-left oa-featured-hero">
       <CoverPhoto
         image={post.image}
         motif={post.motif}

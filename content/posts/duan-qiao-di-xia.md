@@ -1,5 +1,5 @@
 ---
-title: 断桥底下
+title: 我不拍桥
 dek: 十二年了，我很少把镜头抬到桥上。桥下的人换了一茬又一茬，江水还是那一道。
 author: 朴成日
 place: 辽宁 · 丹东
@@ -11,7 +11,7 @@ image: /images/duan-qiao-di-xia.jpg
 native: "다리 밑에서 보면, 강이 먼저 보인다."
 nativeLang: ko
 coords: [40.12, 124.39]
-pullTitle: '桥下的人，不看桥。'
+pullTitle: '从桥下看，先看见的是江。'
 ---
 
 *影像专题 · 十二幅。拍摄于 2025 年冬至 2026 年春，鸭绿江断桥下方至江沿。*

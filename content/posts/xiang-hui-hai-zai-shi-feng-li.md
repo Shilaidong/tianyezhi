@@ -1,5 +1,5 @@
 ---
-title: 香灰还在石缝里
+title: 金水河后山土地庙
 dek: 金水河的土地庙没有香客名册。我们拍了五天。拍到的是石缝里的灰，和还愿留下的一只塑料花。
 author: 陈青麦
 place: 云南 · 金平
@@ -9,7 +9,7 @@ issue: 第三期 · 香火
 motif: jiebei
 image: /images/xiang-hui-hai-zai-shi-feng-li.jpg
 coords: [22.53, 102.48]
-pullTitle: '灰在石缝里，花是塑料的。'
+pullTitle: '来的人放下东西就走。'
 ---
 
 *影像专题 · 本刊摄影记者边境系列之五。*

@@ -9,7 +9,7 @@ issue: 第二期 · 口岸
 motif: jiebei
 image: /images/bian-jing-jian-bao-di-3-qi.jpg
 coords: [47.73, 90.38]
-pullTitle: '一百天开门，其余对着雪。'
+pullTitle: '红山嘴延至六月二日开通'
 ---
 
 边境雷达本期据新疆福海红山嘴口岸护边员哈德尔来信汇编。红山嘴为中蒙季节性公路口岸，对面为蒙古国大洋口岸。

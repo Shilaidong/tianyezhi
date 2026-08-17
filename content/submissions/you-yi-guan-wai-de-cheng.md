@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜边境志｜友谊关外的秤
+subject: 投稿｜边境志｜晚开的四十分钟
 author: 农秀梅
 section: bianjing
 slug: you-yi-guan-wai-de-cheng

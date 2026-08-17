@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜边境志｜十八站棚子里的船
+subject: 投稿｜边境志｜棚里的奥木鲁钦
 author: 孟和杰
 section: bianjing
 slug: shi-ba-zhan-peng-zi-li-de-chuan
@@ -8,7 +8,7 @@ wechat: menghj_th
 ---
 
 投给：tougao@tianyezhi.example
-标题：投稿｜边境志｜十八站棚子里的船
+标题：投稿｜边境志｜棚里的奥木鲁钦
 
 编辑老师：
 

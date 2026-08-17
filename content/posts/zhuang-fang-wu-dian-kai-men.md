@@ -1,5 +1,5 @@
 ---
-title: 奘房五点开门
+title: 十三盏都亮了
 dek: 姐告的奘房五点开门。门开了，灯才算亮。缅甸那边的人也来滴水，水是同一桶。
 author: 刀承恩
 place: 云南 · 瑞丽
@@ -9,7 +9,7 @@ issue: 第三期 · 香火
 motif: flame
 image: /images/zhuang-fang-wu-dian-kai-men.jpg
 coords: [23.98, 97.93]
-pullTitle: '门开了，灯才算亮。'
+pullTitle: '亮不全，我不开门给人进。'
 ---
 
 门闩是木头的，潮了会涩。我五点到，先用掌心拍两下，再推。门开一条缝，里面的油味先出来，灯还没亮，味已经在。

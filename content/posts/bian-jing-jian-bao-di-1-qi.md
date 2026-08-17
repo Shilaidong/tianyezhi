@@ -7,6 +7,7 @@ date: 2026-08-10
 section: jianbao
 motif: jiebei
 image: /images/bian-jing-jian-bao.jpg
+pullTitle: '泸水重启刮克舞传习班'
 ---
 
 边境雷达本期为汇编样例，三条据公开信源整理，每条注明来源类型。正式简报将在选题雷达（P1）上线后自动生成、经编辑点发。

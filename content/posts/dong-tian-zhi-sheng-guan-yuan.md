@@ -1,5 +1,5 @@
 ---
-title: 冬天只剩官员
+title: 恩和十二月
 dek: 游客夏天来喝格瓦斯。十二月，木刻楞的街上能听见自己的脚步。
 author: 娜塔莎·李
 place: 内蒙古 · 额尔古纳
@@ -11,7 +11,7 @@ image: /images/dong-tian-zhi-sheng-guan-yuan.jpg
 native: "Зимой улица принадлежит ветру."
 nativeLang: ru
 coords: [51.65, 119.75]
-pullTitle: '十二月，街是风的。'
+pullTitle: '拍摄地点是额尔古纳恩和，不是室韦。格瓦斯窗口不在这十二幅里。'
 ---
 
 *影像专题 · 十二幅。拍摄于 2025 年 12 月至 2026 年 1 月，地点在额尔古纳恩和，不是室韦。*

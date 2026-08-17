@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜边境志｜平孟还是三、八
+subject: 投稿｜边境志｜空着的那张板凳
 author: 黄秀英
 section: bianjing
 slug: ping-meng-hai-shi-san-ba

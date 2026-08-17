@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜特写｜通往南科
+subject: 投稿｜特写｜南科这两个字
 author: 盘金莲
 section: texie
 slug: tong-wang-nan-ke

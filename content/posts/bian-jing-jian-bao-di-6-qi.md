@@ -9,7 +9,7 @@ issue: 第五期 · 西藏
 motif: terrace
 image: /images/bian-jing-jian-bao-di-6-qi.jpg
 coords: [29.27, 88.88]
-pullTitle: '边贸点开了，环线还在养。'
+pullTitle: '中尼传统边贸点恢复开放'
 ---
 
 边境雷达本期据公开信息与读者来信汇编，三条均与西藏边境上还在用的点、路、口岸有关。不涉及路权争论。

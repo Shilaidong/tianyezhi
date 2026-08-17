@@ -1,5 +1,5 @@
 ---
-title: 砖茶这个词
+title: 他把茶说成一块
 dek: 他把茶说成一块。我译成砖。砖是形状，不是颜色。
 author: 乌云其其格
 place: 内蒙古 · 二连浩特
@@ -11,7 +11,7 @@ image: /images/zhuan-cha-zhe-ge-ci.jpg
 native: "Цай тоосгон."
 nativeLang: mn
 coords: [43.65, 112.00]
-pullTitle: '茶是一块。路是驼。'
+pullTitle: '砖是形状，不是颜色。'
 ---
 
 *口述 / 巴图，七十一岁，二连浩特。互市翻译乌云其其格整理。讲述者以蒙古语叙述，中文为整理者译文，已经讲述者过目。*

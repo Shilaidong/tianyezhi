@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜散文｜十八站是第十八个
+subject: 投稿｜散文｜乡口那块石头
 author: 孟和杰
 section: sanwen
 slug: shi-ba-zhan-shi-di-shi-ba-ge
@@ -8,7 +8,7 @@ wechat: menghejie_18
 ---
 
 投给：tougao@tianyezhi.example
-标题：投稿｜散文｜十八站是第十八个
+标题：投稿｜散文｜乡口那块石头
 
 编辑老师：
 

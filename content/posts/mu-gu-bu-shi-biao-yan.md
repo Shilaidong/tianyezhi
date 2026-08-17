@@ -1,5 +1,5 @@
 ---
-title: 木鼓不是表演
+title: 我说不敲
 dek: 游客要敲，我说不敲。鼓在房里，钥匙在我腰上。
 author: 岩坎
 place: 云南 · 沧源
@@ -9,7 +9,7 @@ issue: 第三期 · 香火
 motif: horn
 image: /images/mu-gu-bu-shi-biao-yan.jpg
 coords: [23.15, 99.25]
-pullTitle: '鼓在房里，不在台上。'
+pullTitle: '钥匙在我腰上，铁的，坐下碰到大腿。'
 ---
 
 *口述 / 岩坎，五十八岁，佤族，沧源勐董木鼓房看房。已经讲述者过目。*

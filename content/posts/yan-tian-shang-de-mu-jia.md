@@ -1,5 +1,5 @@
 ---
-title: 盐田上的木架
+title: 加达村盐田
 dek: 我们在芒康盐井拍了六天。拍到的是木架、卤池，和刮过以后还湿的田。
 author: 陈青麦
 place: 西藏 · 芒康
@@ -9,7 +9,7 @@ issue: 第四期 · 古道
 motif: terrace
 image: /images/yan-tian-shang-de-mu-jia.jpg
 coords: [29.67, 98.61]
-pullTitle: '架子在，水在变成盐。'
+pullTitle: '盐户说可以拍田，不要拍脸。'
 ---
 
 *影像专题 · 六幅。*

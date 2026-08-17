@@ -1,5 +1,5 @@
 ---
-title: 界碑旁的早市
+title: 东兴早市拍了七天
 dek: 东兴的早市五点开始。第一拨过关的不是游客，是越南商贩肩头扁担里的菠萝蜜、咖啡和滴漏壶。
 author: 陈青麦
 place: 广西 · 东兴
@@ -9,7 +9,7 @@ issue: 创刊号 · 界河
 motif: market
 image: /images/jie-bei-zao-shi.jpg
 coords: [21.53, 107.97]
-pullTitle: '五点钟，越南的菠萝蜜先过关。'
+pullTitle: '五点开关，戴斗笠的人已经排成一列。'
 ---
 
 *影像专题 · 本刊摄影记者边境系列之一。*

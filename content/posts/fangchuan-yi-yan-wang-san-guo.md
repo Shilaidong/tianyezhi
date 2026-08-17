@@ -1,5 +1,5 @@
 ---
-title: 防川，一眼望三国
+title: 牌子上三枚箭头
 dek: 防川瞭望台上三枚箭头。冬天江面封冻。护边员说，鸥鸟春天从海上来，秋天回海上去。
 author: 陈青麦
 place: 吉林 · 珲春
@@ -9,7 +9,7 @@ issue: 创刊号 · 界河
 motif: ferry
 image: /images/fangchuan.jpg
 coords: [42.42, 130.57]
-pullTitle: '鸥鸟春天从海上来，秋天回海上去。'
+pullTitle: '他说春天从海上来，秋天回海上去，年年如此。'
 ---
 
 *影像专题 · 本刊摄影记者边境系列之二。*

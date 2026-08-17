@@ -9,7 +9,7 @@ issue: 第四期 · 古道
 motif: terrace
 image: /images/bian-jing-jian-bao-di-5-qi.jpg
 coords: [43.65, 112.00]
-pullTitle: '茶道数遗址，盐田修沟，隧道还养。'
+pullTitle: '茶道遗址约一百九十七处'
 ---
 
 边境雷达本期据公开信息与读者来信汇编，三条均与边境上还在用、还在修的路有关：遗址、盐田、公路。不涉及路权争论。

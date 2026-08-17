@@ -1,6 +1,6 @@
 ---
-title: 牛头还在墙上
-dek: "聘礼还是牛头。游客中心是后来的。墙比中心老。"
+title: 揭下来干什么
+dek: 阿旺六十四，沙琼的，僜人。娶她的时候家里把牛牵过去，头留下，挂在墙上。
 author: 格桑拉姆
 place: 西藏 · 察隅
 date: 2026-08-16
@@ -9,7 +9,7 @@ issue: 第二期 · 口岸
 motif: horn
 image: /images/niu-tou-hai-zai-qiang-shang.jpg
 coords: [28.35, 97.05]
-pullTitle: '墙比游客中心老。'
+pullTitle: '揭下来墙更空，空了不像这家。'
 ---
 
 *口述 / 阿旺，六十四岁，僜人，察隅下察隅沙琼。卫生院护士格桑拉姆整理。已经讲述者过目。*

@@ -1,5 +1,5 @@
 ---
-title: 绒辖沟里的水泥路
+title: 绒辖，路修到门口
 dek: 我们在定日绒辖乡拍了六天。拍到的是修到门口的水泥路，和压着石头的篷。
 author: 陈青麦
 place: 西藏 · 定日
@@ -9,7 +9,7 @@ issue: 第五期 · 西藏
 motif: terrace
 image: /images/rong-xia-gou-li-de-shui-ni-lu.jpg
 coords: [27.97, 86.02]
-pullTitle: '路修到门口。篷还压着石头。'
+pullTitle: '我数过眼前这一段，能看见四户的门。'
 ---
 
 *影像专题 · 六幅。*

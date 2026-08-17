@@ -1,5 +1,5 @@
 ---
-title: 货从派镇进来
+title: 一趟七八十斤
 dek: 你问货怎么走？以前背。现在车从派镇下来。还是要看天。
 author: 江浸月 整理
 place: 西藏 · 墨脱
@@ -9,7 +9,7 @@ issue: 第五期 · 西藏
 motif: terrace
 image: /images/huo-cong-pai-zhen-jin-lai.jpg
 coords: [29.33, 95.33]
-pullTitle: '货从派镇进来。还是要看天。'
+pullTitle: '四个钟头是天好的时候。天不好，四个钟头也是等。'
 ---
 
 *口述 / 桑珠，五十八岁，墨脱加热萨。江浸月整理。已经讲述者过目。*

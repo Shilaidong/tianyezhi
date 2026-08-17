@@ -1,5 +1,5 @@
 ---
-subject: 投稿｜特写｜霍尔果斯的夜班
+subject: 投稿｜特写｜八和三的尾巴
 author: 艾孜买提·吐尔逊
 section: texie
 slug: huo-er-guo-si-ye-ban

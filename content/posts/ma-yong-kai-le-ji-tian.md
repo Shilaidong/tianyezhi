@@ -1,6 +1,6 @@
 ---
-title: 玛永开了几天
-dek: 开了四天。第五天风把篷布掀起来。货还在袋子里。
+title: 空地没有墙
+dek: 玛永这片空地没有墙。我支一块布篷，四角各压一块石头。第五天早上风从北边过来，比前四天都直。
 author: 贡觉
 place: 西藏 · 仲巴
 date: 2027-03-02
@@ -9,7 +9,7 @@ issue: 第五期 · 西藏
 motif: market
 image: /images/ma-yong-kai-le-ji-tian.jpg
 coords: [29.40, 84.05]
-pullTitle: '开了四天。风先到。'
+pullTitle: '开了不等于摆出来。第五天风改直了，布来不及斜，只能掀。'
 ---
 
 开了四天。第五天风把篷布掀起来。货还在袋子里。

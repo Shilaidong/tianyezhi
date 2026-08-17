@@ -9,7 +9,7 @@ issue: 第三期 · 香火
 motif: terrace
 image: /images/bian-jing-jian-bao-di-4-qi.jpg
 coords: [30.29, 81.18]
-pullTitle: '转山道养护，哈节日期，敖包分流。'
+pullTitle: '科加转山便道完成局部养护'
 ---
 
 边境雷达本期据公开信息与读者来信汇编，三条均与边境日常里的宗教活动有关：路、节、分流。不涉及教义争论。

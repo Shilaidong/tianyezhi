@@ -38,7 +38,7 @@ export default function IssueDeck({
   const current = ordered[active];
   if (!current) return null;
 
-  const spread = aside ? 16 : 42;
+  const spread = aside ? 20 : 42;
   const tilt = aside ? -8 : -18;
   const depth = aside ? -88 : -110;
 

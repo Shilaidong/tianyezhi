@@ -694,7 +694,7 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   margin: 0;
 }
 .issue-deck-section--aside .issue-deck-card {
-  height: 92%;
+  height: 46%;
   width: auto;
   max-width: none;
   aspect-ratio: 3 / 4;
@@ -1004,8 +1004,8 @@ a:hover .oa-arrow {
     min-height: min(72vw, 520px);
   }
   .issue-deck-section--aside {
-    height: min(118vw, 680px);
-    min-height: min(118vw, 680px);
+    height: min(78vw, 480px);
+    min-height: min(78vw, 480px);
   }
   .oa-square-split {
     flex-direction: column;

@@ -43,7 +43,7 @@ SUBMISSIONS-PROMPT.md     # 投稿邮件提示词
 
 ## 如何发布一篇新文章
 
-见 [PUBLISH.md](PUBLISH.md)，网站主页底部和 [`/cli`](/cli) 是同一份。有这个仓库写权限就能发，**不要** `wrangler login`。
+见 [PUBLISH.md](PUBLISH.md)，线上说明只在 https://edgeland.org/cli （不挂导航）。有这个仓库写权限就能发，**不要** `wrangler login`。
 
 本地只写 Markdown 和照片，核对后推进 `main`，GitHub Actions 灌 D1、部署。排版与 `npm run dev` 相同。
 

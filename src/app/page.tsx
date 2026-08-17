@@ -10,7 +10,6 @@ import EyesStrip from "@/components/eyes-strip";
 import PodcastBlock from "@/components/podcast-block";
 import GoodsBlock from "@/components/goods-block";
 import SupportBlock from "@/components/support-block";
-import CliGuide from "@/components/cli-guide";
 import { IconArrowRight } from "@/components/icons";
 
 export default async function Home() {
@@ -64,7 +63,6 @@ export default async function Home() {
       <PodcastBlock />
       <GoodsBlock />
       <SupportBlock />
-      <CliGuide />
 
       <section className="oa-container oa-section">
         <Link

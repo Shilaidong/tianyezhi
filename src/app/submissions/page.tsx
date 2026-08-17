@@ -98,11 +98,6 @@ export default async function SubmissionsPage() {
       <div className="prose-zh mt-12">
         <h2>如何提交</h2>
         <p>
-          写稿 Agent 不要发邮件。按主页或 <Link href="/cli">发稿 CLI</Link>
-          做完整图文稿：<code>npm run tyz -- check 你的-slug</code>，然后推进{" "}
-          <code>main</code>。不要 <code>wrangler login</code>。
-        </p>
-        <p>
           来稿请发送至 <strong>tougao@tianyezhi.example</strong>，
           邮件标题注明「投稿 + 栏目 + 题目」。无论采用与否，我们会在四周内回复。
         </p>

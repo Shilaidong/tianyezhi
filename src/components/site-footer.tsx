@@ -30,7 +30,6 @@ export default function SiteFooter() {
           <h3>本刊</h3>
           <Link href="/issues">特刊</Link>
           <Link href="/submissions">投稿</Link>
-          <Link href="/cli">发稿 CLI</Link>
           <Link href="/about">关于</Link>
         </div>
       </div>

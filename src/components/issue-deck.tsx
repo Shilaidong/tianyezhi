@@ -38,9 +38,9 @@ export default function IssueDeck({
   const current = ordered[active];
   if (!current) return null;
 
-  const spread = aside ? 20 : 42;
-  const tilt = aside ? -8 : -18;
-  const depth = aside ? -88 : -110;
+  const spread = aside ? 24 : 42;
+  const tilt = aside ? -7 : -18;
+  const depth = aside ? -72 : -110;
 
   return (
     <section className={`issue-deck-section${aside ? " issue-deck-section--aside" : ""}`}>

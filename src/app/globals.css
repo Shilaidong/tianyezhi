@@ -646,16 +646,19 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   overflow: hidden;
 }
 .oa-featured-left.oa-featured-hero {
-  grid-column: span 6;
-  height: min(54vw, 760px);
-  min-height: min(54vw, 760px);
+  grid-column: span 5;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-height: 0;
+  padding: 0 8%;
 }
 .issue-deck-section--aside {
-  grid-column: span 6;
+  grid-column: span 7;
   position: relative;
   padding-top: 0;
-  height: min(54vw, 760px);
-  min-height: min(54vw, 760px);
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
   overflow: hidden;
   background:
     radial-gradient(ellipse at 50% 46%, color-mix(in srgb, var(--color-ink) 7%, transparent), transparent 68%);
@@ -694,7 +697,7 @@ html.dark .oa-theme-toggle .oa-theme-moon {
   margin: 0;
 }
 .issue-deck-section--aside .issue-deck-card {
-  height: 46%;
+  height: 58%;
   width: auto;
   max-width: none;
   aspect-ratio: 3 / 4;
@@ -1000,12 +1003,16 @@ a:hover .oa-arrow {
     min-height: 0;
   }
   .oa-featured-left.oa-featured-hero {
-    height: min(72vw, 520px);
-    min-height: min(72vw, 520px);
+    aspect-ratio: 1 / 1;
+    height: auto;
+    min-height: 0;
   }
   .issue-deck-section--aside {
-    height: min(78vw, 480px);
-    min-height: min(78vw, 480px);
+    height: min(68vw, 360px);
+    min-height: min(68vw, 360px);
+  }
+  .issue-deck-section--aside .issue-deck-card {
+    height: 64%;
   }
   .oa-square-split {
     flex-direction: column;
